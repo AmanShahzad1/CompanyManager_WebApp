@@ -1,20 +1,29 @@
-// types/activity.ts
 export interface Activity {
   id: number;
-  endUser: string;
-  customerName: string;
-  vendorName: string;
-  workLocation: string;
+  end_user: string;
+  customer_name: string;
+  vendor_name: string;
+  work_location: string;
   personnel: string;
   activity: string;
-  activityDate: Date;
-  activityCompleted: boolean;
-  poStatus: string;
+  activity_date: string;
+  activity_completed: boolean;
+  po_status: string;
   invoiced: boolean;
-  invoiceNumber?: string;
-  paymentStatus: string;
-  reportsPending: boolean;
-  charges: number;
+  invoice_number?: string | null;
+  payment_status: string;
+  reports_pending: boolean;
+  charges: number | string;
+}
+
+// components/dashboard/types.ts
+export type PeriodOption = 'week' | 'month' | 'year';
+
+// For filters
+export interface ActivityFilters {
+  status?: string;
+  personnel?: string;
+  [key: string]: string | undefined;
 }
 
 export interface ActivityStats {
